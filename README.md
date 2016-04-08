@@ -1,5 +1,8 @@
 # Heuristic Experiment in Dynamic Vector Tile Generation for Web Maps
 
+![](media/vivaldi.png)
+<sub>For the keen eyes, I'm using the new [Vivaldi](https://vivaldi.com/) web browser</sub>
+
 This _experimental_ project is a visualizer of my [Vector Tile Encoder](https://github.com/mraad/vector-tiles) as it dynamically generates vector tiles for web applications based on the [Javascript API for ArcGIS](https://developers.arcgis.com/javascript/beta/).
 Specifically, this visualizer mimics the response of a VectorTileServer REST request emitted by a [VectorTileLayer](https://developers.arcgis.com/javascript/beta/api-reference/esri-layers-VectorTileLayer.html) to dynamically search a data source and transform the result set into vector tile features.
 
