@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Vector tiles</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.0beta3/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.0beta3/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/VectorTileLayer",
+            "dojo/domReady!"
+        ], function (Map, MapView, VectorTileLayer) {
+
+            var vectorTileView;
+            var vectorTileLayer = new VectorTileLayer({url: "/arcgis/rest/services/Dynamic/VectorTileServer"});
+            vectorTileLayer.on("layer-view-create", function (e) {
+                vectorTileView = e.layerView;
+            });
+            var map = new Map({
+                layers: [vectorTileLayer]
+            });
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [0, 0],
+                zoom: 2
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
