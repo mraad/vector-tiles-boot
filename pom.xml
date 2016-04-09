@@ -181,6 +181,39 @@
                             </configuration>
                         </plugin>
             -->
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.14.2</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>mraad/${project.artifactId}</name>
+                            <build>
+                                <cleanup>try</cleanup>
+                                <from>alpine:3.3</from>
+                                <maintainer>mraad@esri.com</maintainer>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                                <runCmds>
+                                    <run>apk --update add openjdk8-jre</run>
+                                </runCmds>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>/usr/bin/java</arg>
+                                        <arg>-jar</arg>
+                                        <arg>/maven/${project.build.finalName}.jar</arg>
+                                    </exec>
+                                </entryPoint>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
