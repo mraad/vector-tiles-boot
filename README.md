@@ -65,6 +65,22 @@ docker build\
  --ulimit nproc=25059:25059\
  -t mraad/vector-tiles-boot .
 ```
+
+### Using Maven
+
+Found [this](https://github.com/fabric8io/docker-maven-plugin) Maven plugin that allows me to control builds and deployments:
+
+```shell
+mvn package docker:build
+```
+
+Starting and stopping the container:
+```shell
+mvn docker:start
+```
+```shell
+mvn docker:stop
+```
   
 ## See Also
 
