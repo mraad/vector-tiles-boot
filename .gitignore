@@ -1,6 +1,6 @@
 .idea/
 target/
-docker/vector-tiles-boot-0.0.1-SNAPSHOT.jar
+docker/vector-tiles-boot-0.0.2-SNAPSHOT.jar
 
 *.class
 *.jar
